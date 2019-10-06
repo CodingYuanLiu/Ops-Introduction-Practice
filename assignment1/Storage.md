@@ -240,15 +240,87 @@ Another common storage is optical storage, which uses lasers and lights as its m
   
 Flash memory has replaced most magnetic and optical media as it becomes cheaper because it is the more efficient and reliable solution.
 
-1. Flash drive
-2. CompactFlash(CF)
-3. M.2
-4. Memory card
-5. MMC
-6. NVMe
-7. SDHC Card
-8. SmartMedia Card
-9. Sony Memory Stick
-10. SD card
-11. SSD
-12. xD-Picture Card
+1. **Flash drive**
+   
+ - Definition
+
+  Alternatively referred to as a USB flash drive, data stick, pen drive, memory unit, keychain drive and thumb drive, a jump drive is a portable storage device. It is often the size of a human thumb (hence the name), and connects to a computer via a USB port. Flash drives are an easy way to store and transfer information between computers and range in sizes from 2 GB to 1 TB.
+
+  Unlike a standard hard drive, the flash drive has no movable parts; it contains only an integrated circuit memory chip that is used to store data. Flash drives usually have plastic or aluminum casings surrounding the memory chip. The picture shows a SanDisk Cruzer Micro 16 GB flash drive.
+
+  ![](https://www.computerhope.com/cdn/flashdrive.jpg)
+
+2. **CompactFlash (CF)**
+
+- Definition
+
+  Short for CompactFlash, CF is a 50-pin connection storage device. CompactFlash is a storage medium commonly found in PDAs, digital cameras, and other portable devices. The CF card had a pretty large range of sizes, in terms of storage capacity, ranging from 2 MB to 128 GB. The picture shows a SanDisk 4.0 GB CompactFlash card.
+
+  ![](https://www.computerhope.com/jargon/c/cf.jpg)
+
+3. **M.2**
+   
+- Definition
+
+  M.2 is a connection type specification for computer expansion cards, introduced in 2014. The two major types of M.2 devices are the SATA M.2 and the significantly faster (and more expensive) PCIe M.2.
+
+  M.2 is often used for storage devices, such as SSDs, and high-performance non-volatile memory storage, such as Intel Optane.
+
+  ![](https://www.computerhope.com/jargon/m/m2.jpg)
+
+3. **Memory card**
+   
+- Definition
+  
+  Alternatively referred to as a flash memory card, a Memory card is a type of storage media that is often used to store photos, videos, or other data in electronic devices. Devices that commonly use a memory card include digital cameras, digital camcorders, handheld computers, MP3 players, PDAs, cell phones, game consoles, and printers. The picture to the right is a MicroSD flash memory card, which is one of the types of memory cards available.
+
+  ![](https://www.computerhope.com/jargon/m/microsd.jpg)
+
+4. **MMC**
+   
+- Definition
+
+  Short for MultiMediaCard, MMC is a memory card available as flash memory and ROM used in such devices as car radios, cell phones, digital cameras, PDAs, MP3 players, and printers. Today, there are various variations and sizes of the MMC card such as the MMCP (MMCplus) and MMCM (MMCmobile / MMCmicro). The picture shows an example of a Kingston MMCM 1 GB card.
+
+  ![](https://www.computerhope.com/jargon/m/mmcm.jpg)
+
+5. **NVMe**
+   
+- Definition
+
+  Non-Volatile Memory Express, also known as NVMe, is a device specification introduced by Intel in 2007. It standardizes the way that non-volatile memory devices, such as SSDs, can be connected to a computer's PCI Express (PCIe) bus.
+
+  ![](https://www.computerhope.com/jargon/n/nvme-intel-p3608.jpg)
+
+6. **SDHC Card**
+
+- Definition
+
+  Short for Secure Digital High Capacity card, the SDHC card is an improved version of the standard SD card with a storage capacity up to 32 GB. Because SDHC works differently then a standard SD card, it is not backward compatible with legacy SD devices.
+
+  ![](https://www.computerhope.com/jargon/s/sdhc.jpg)
+
+7. **SmartMedia Card**
+   
+- Definition
+
+  The SM (SmartMedia) card is a type of flash memory card. It was one of the first memory cards to be produced and used in digital cameras, and other electronic devices. The SmartMedia card had a smaller capacity, ranging from 2 MB to 128 MB, and physical dimensions of 45mm x 37mm x .76mm. The picture shows an example of an 8 MB SmartMedia card.
+
+  ![](https://www.computerhope.com/jargon/s/smartmed.jpg)
+
+8.  **SD card**
+
+- Definition
+  
+  Short for Secure Digital card, the SD card is one of the more common types of memory cards used with electronics. The SD technology is used by over 400 brands of electronic equipment and over 8000 different models, including digital cameras and cell phones. It is considered the industry standard due to the wide use.
+
+  ![](https://www.computerhope.com/jargon/s/sdcard.jpg)
+
+9.  **SSD**
+
+- Definition
+
+  Short for solid-state drive (or solid-state disk, although it doesn't use a disk mechanism), an SSD is a storage medium that uses non-volatile memory as a means of holding and accessing data.
+
+  ![](https://www.computerhope.com/jargon/s/ssd.jpg)
+

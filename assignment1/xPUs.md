@@ -203,5 +203,5 @@ AMD A-series and xxxG CPUs
 
 <p align="center">
 	<img src="./imgs/apu.png" alt="a-series"  width="350">
-	<img src="./imgs/2400g.png" alt="Ryzen 5 2400G"  width="330">
+	<img src="./imgs/2400G.png" alt="Ryzen 5 2400G"  width="330">
 </p>

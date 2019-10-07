@@ -10,6 +10,12 @@ An important distinction between memory and storage is that the former clears wh
 
 Usually, storage comes in the form of a solid-state drive or a hard drive. Storage allows you to access and store your applications, operating system and files for an indefinite period of time.
 
+## Indicators
+
+Capacity, speed, archiving life and power consumption are common performance indicators of storage devices.
+
+There are tools to mesure these indicators, the common method is to record the write/read/move speed.
+
 ## Types of Storage
 
 ### Magnetic storage devices
@@ -52,13 +58,13 @@ Today, magnetic storage is one of the most common types of storage used with com
 
 - Vendors
 
-| Vendors |      |      |
-| ------- | ---- | ---- |
-| Sabrent |      |      |
-| Samsung |      |      |
-| NEC     |      |      |
-| Mitsumi |      |      |
-| Bytecc  |      |      |
+  | Vendors | 
+  | ------- | 
+  | Sabrent | 
+  | Samsung |
+  | NEC     |
+  | Mitsumi |
+  | Bytecc  | 
 
 2. **Hard Disk Drive (HDD)**
 
@@ -95,16 +101,19 @@ Today, magnetic storage is one of the most common types of storage used with com
 
 - Vendors
 
-| Vendors |      |      |
-| ------- | ---- | ---- |
-| WESTERN DIGITAL TECHNOLOGIES INC |      |      |
-| Seagate |      |      |
-| Toshiba |      |      |
-| Hitachi |      |      |
-| SanDisk  |      |      |
-| Kingston Technology  |      |      |
+  | Vendors |   Note   |     
+  | ------- | ---- | 
+  | WESTERN DIGITAL|      |     
+  | Seagate |      |     
+  | Toshiba |    |     
+  | Hitachi |    Acquired by Seagate in 2011    |    
+  | Samsung |  Acquired by Seagate in 2011    |  
+  | Maxtor |   Acquired by Seagate in 2007   |  
+  | Fujitsu |   Acquired by Toshiba in 2009     |  
+  | IBM |   Quited  | 
 
-3. Tape cassette
+
+3. **Tape cassette**
 
 - Definition
 
@@ -114,6 +123,242 @@ Today, magnetic storage is one of the most common types of storage used with com
 
 - Pros & Cons
 
+  **Pros**
+
+  1. **The unit capacity cost is low,** the disk is about 2-3 yuan per GB, the tape is about 0.5 yuan per GB; 
+  2. **Read-write separation, convenient transportation**, perfect backup option; 
+  3. **The medium is more stable than the disk, the storage period is longer**, the guarantee period of the disk is up to 3-5 years, and the tape can be up to 50 years. 
+  4. **Low energy consumption, low room construction requirements:** high disk power consumption, high operating temperature, and low tape machine power consumption, no need for temperature control system, for the construction of computer room provides greater flexibility.
+
+  **Cons**
+
+  1. It is a much slower solution because it is sequential access and is often used for backing up large amounts of data.
+
+- Vendors
+
+  | Vendors |  
+  | ------- | 
+  | hp |  
+  | Quantum |   
+  | IBM | 
+
+### Optical storage devices
+
+Another common storage is optical storage, which uses lasers and lights as its method of reading and writing data.
+
+1. **Blu-Ray Disc (BD)**
+
+- Definition
+
+  Short for Blu-ray disc, BD or BD-ROM, is an optical disc format developed by thirteen consumer electronics and PC companies. These companies include Dell, Hitachi, Hewlett Packard, LG, Mitsubishi, Panasonic, Sony, and TDK.
+
+  ![](https://www.computerhope.com/jargon/b/bluray.jpg)
+
+- Pros & Cons
+
+  **Pros**
+
+  1. It can store more data than standard DVDs.
+  2. It can hold HD video and thus has a better picture quality than DVD and can recognize scratched areas.
+  3. Enhanced network/internet connectivity. Faster playback and burning speed. Backward compatibility.
+
+  **Cons**
+
+  1. Very expensive; not only the technology, but also the Blu-ray discs have a high price tag.
+  2. High definition capacity is not a substantial amount even though storage space is more.
+
+
+2. **Compact Disc Read-Only Memory (CD-ROM)**
+
+- Definition
+
+  A CD-ROM is an optical disc that contains audio or software data whose memory is read-only.
+
+  ![](https://www.computerhope.com/jargon/c/cd.jpg)
+
+- Pros & Cons
+
+  **Pros**
+
+  1. CD burning technology is an especially good media for backup archives.
+  2. CDs are more than adequate for small backups and have a transfer rate of 3 MBs for 20x CD drives and 8MBs for 52x CD drives.
+  3. CDs are portable, easy to store and carry and most new computers come with CD burning drives.
+  4. CDs are an inexpensive backup media, have a 5 to 10 year lifespan and are not susceptible to magnets.
+
+  **Cons**
+
+  1. CDs can become scratched and unusable through mishandling and daily use.
+  2. It takes more work to burn a CD/DVD disc than it does to setup an automated backup to HDD.
+
+3. **Cd Writer (CD-R)**
+
+- Definition
+   
+  Alternatively referred to as a cd writer, CD-WO (write once), or WORM (write once read many), CD-R is short for Compact Disc-Recordable. 
   
+  It is a writable disc and drive that is capable of having information written to the disc once and then having that disc read many times after that.
+
+  Data cannot be deleted from a CD-R disc and a CD-R disc cannot be formatted. If the data is not written to the disc properly, it cannot be corrected and is often jokingly referred to as a coaster.
+
+  ![](https://www.computerhope.com/cdn/cd-rom.jpg)
+
+4. **Recordable DVD drives (DVD)**
+
+- Definition
+  
+  Alternatively referred to as a DVD writer, recordable DVD drives are disc drives capable of creating DVD discs. Unfortunately, unlike recordable CD drives, many competing standards exist for creating DVD discs. For example, DVD-R, DVD-RW, DVD+R, DVD+RW, DVD+R DL (DVD+R9), and DVD-RAM are all distinct DVD standards. Below is a brief explanation of each of these standards and related links to each of these standards.
+
+  ![](https://www.computerhope.com/jargon/d/dvd-r.jpg)
 
 
+**Vendors of Optical storage devices**
+  
+  | Vendors |   
+  | ------- |
+  | Anwell Technologies |   
+  | Bluray Korea |      
+  | CD Video Manufacturing Inc. |  
+  | CMC Magnetics |     
+  | Moser Baer |    
+  | New Cyberian |    
+  | Ritek |   
+  | River Pro Audio |  
+  | Sony |  
+  | Technicolor SA |  
+
+### Flash memory devices
+  
+Flash memory has replaced most magnetic and optical media as it becomes cheaper because it is the more efficient and reliable solution.
+
+1. **Flash drive**
+   
+    Alternatively referred to as a USB flash drive, data stick, pen drive, memory unit, keychain drive and thumb drive, a jump drive is a portable storage device. It is often the size of a human thumb (hence the name), and connects to a computer via a USB port. Flash drives are an easy way to store and transfer information between computers and range in sizes from 2 GB to 1 TB.
+
+    Unlike a standard hard drive, the flash drive has no movable parts; it contains only an integrated circuit memory chip that is used to store data. Flash drives usually have plastic or aluminum casings surrounding the memory chip. The picture shows a SanDisk Cruzer Micro 16 GB flash drive.
+
+    ![](https://www.computerhope.com/cdn/flashdrive.jpg)
+
+2.  **SSD**
+
+    Short for solid-state drive (or solid-state disk, although it doesn't use a disk mechanism), an SSD is a storage medium that uses non-volatile memory as a means of holding and accessing data.
+
+    **NVMe:** Non-Volatile Memory Express, also known as NVMe, is a device specification introduced by Intel in 2007. It standardizes the way that non-volatile memory devices, such as SSDs, can be connected to a computer's PCI Express (PCIe) bus.
+    ![](https://www.computerhope.com/jargon/s/ssd.jpg)
+    ![](https://www.computerhope.com/jargon/n/nvme-intel-p3608.jpg)
+
+3. **Memory card**
+   
+    Alternatively referred to as a flash memory card, a Memory card is a type of storage media that is often used to store photos, videos, or other data in electronic devices. Devices that commonly use a memory card include digital cameras, digital camcorders, handheld computers, MP3 players, PDAs, cell phones, game consoles, and printers. The picture to the right is a MicroSD flash memory card, which is one of the types of memory cards available.
+
+    ![](https://www.computerhope.com/jargon/m/microsd.jpg)
+
+**Venders of flash memory devices**
+
+  There are many venders of flash memory devices, but only few of them have ability to produce chips, other venders buy chips from these venders, so here just list the venders who have wafer fab.
+
+  | Vendors |  NOTE |
+  | ------- | ---|
+  | Samsung |   The world's largest semiconductor manufacturers, from CPU (ARM) to DRAM and then to NAND, are able to design and produce independently, with very strong strength.|
+  | Intel  |   The world's largest PC parts and CPU manufacturer, desktop GPU market share first, old NAND manufacturer   |
+  | Sandisk&WD |  The world's largest supplier of memory card products,  NAND Manufacturers has been bought by Western Digital. |  
+  | Micron&Crucial |   One of the world's largest manufacturers of semiconductor storage and imaging products, the old DRAM and NAND manufacturers. Micron, which had formed a joint venture with Intel, has acquired its remaining shares. Crucial is a brand of Micron Technologies.  |
+  | TOSHIBA |  Japan's largest semiconductor manufacturer, inventor of NAND flash memory  |
+  | SK Hynix |   | 
+
+## Ceph
+
+### What's Ceph
+
+Ceph is a unified distributed storage system designed to provide better performance, reliability and scalability.
+
+The Ceph project originated from Sage's PhD work (the earliest results were published in 2004) and subsequently contributed to the open source community. After several years of development, it has been supported and widely used by many cloud computing vendors. Both Red Hat and OpenStack can be integrated with Eph to support back-end storage of virtual machine images.
+
+### Pros of Ceph
+
+**High performance**
+A. Abandon the traditional centralized storage metadata addressing scheme, using CRUSH algorithm, data distribution is balanced, high parallelism.
+B. Considering the isolation of disaster-tolerant areas, it can realize the rules of placing duplicates of various loads, such as cross-room, rack awareness, etc.
+C. It can support the scale of thousands of storage nodes and support data from TB to PB level.
+
+**High availability**
+A. The number of copies can be controlled flexibly.
+B. Supporting fault domain separation and data consistency.
+C. Automatically repair and self-heal multiple fault scenarios.
+D. No single point of failure, automatic management.
+
+**High scalability**
+A. Decentralization.
+B. Extension flexibility.
+C. Linear growth with the increase of nodes.
+
+**Rich in characteristics**
+A. Three storage interfaces are supported: block storage, file storage and object storage.
+B. Support custom interface and multi-language driver.
+
+### Ceph architecture
+
+Three interfaces are supported:
+Object: There are native APIs, and they are compatible with Swift and S3 APIs.
+Block: Supports streamlined configuration, snapshots, cloning.
+File: Posix interface to support snapshots.
+
+<p align="center">
+	<img src="./imgs/ceph.jpeg" alt="Statistics"  width="650">
+</p>
+
+### Three Storage Types
+
+#### Block Storage
+
+**Typical devices:** disk arrays, hard disks
+The main purpose is to map the bare disk space to the host.
+**Advantage:**
+Raid and LVM provide data protection.
+Multiple cheap hard disks are combined to increase capacity.
+Logic disk composed of multiple disks can improve the efficiency of reading and writing.
+**Disadvantages:**
+When SAN is used to build a network, the cost of optical switch is high.
+Data cannot be shared between hosts.
+**Use scenarios:**
+Docker container, virtual machine disk storage allocation.
+Log storage.
+File store.
+...
+
+#### File Storage
+
+**Typical devices:** FTP, NFS servers
+In order to overcome the problem that block storage files cannot be shared, file storage is available.
+Setting up FTP and NFS services on the server is file storage.
+**Advantage:**
+Low cost, just one machine.
+Facilitate file sharing.
+**Disadvantages:**
+Reading and writing rate is low.
+The transmission rate is slow.
+**Use scenarios:**
+Log storage.
+File storage with directory structure.
+
+#### Object Storage
+**Typical devices:** distributed servers with built-in large capacity hard disks (swift, s3)
+Several servers have built-in large-capacity hard disks, installed object storage management software, and provided read-write access function to the outside world.
+**Advantage:**
+Read-write speed with block storage.
+It has the characteristics of file storage sharing and so on.
+**Use scenarios:**
+(suitable for updating data with less change)
+Picture storage.
+Video storage.
+
+### Indicators
+
+The first thing after building a CEPH cluster is often to do some **performance** testing. The performance testing in this paper mainly includes:
+
+Intra-cluster network IO
+Disk IO of CEPH node
+Read-write performance of CEPH cluster
+
+Methods to do this tests is just write, read and move files and record the io thoughput. There are tools like iperf, rados bench, fio, cosbench, iostat and so on.
+
+Another thing about ceph is **reliability**. This can't be quantified, it can only be estimated.

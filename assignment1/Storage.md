@@ -112,6 +112,11 @@ Today, magnetic storage is one of the most common types of storage used with com
   | Fujitsu |   Acquired by Toshiba in 2009     |  
   | IBM |   Quited  | 
 
+- My Comments
+
+  Compared with SSD, HDD, it has some shortcomings, such as inconvenience, mechanical moving parts, slow speed and so on, but the two advantages of large capacity and no disc drop make HDD still very important computer hardware. 
+  
+  For my computer, I have a small SSD to install systems and programs, and two large HDDs to save files and large games. I think this can provide a better use experience at a lower cost.
 
 3. **Tape cassette**
 
@@ -141,6 +146,10 @@ Today, magnetic storage is one of the most common types of storage used with com
   | hp |  
   | Quantum |   
   | IBM | 
+
+- My Comments
+
+  I've never had access to tape storage and should never use it in the future. At present, tape storage is probably a technology only used by large enterprises.
 
 ### Optical storage devices
 
@@ -226,6 +235,10 @@ Another common storage is optical storage, which uses lasers and lights as its m
   | Sony |  
   | Technicolor SA |  
 
+- My Comments
+  
+  CD/DVD is now a sunset industry, although it will not be replaced in the short term (because CD-ROM is useful in certain circumstances), the decline of it is a fact and will continue to decline, just like the original tape.
+
 ### Flash memory devices
   
 Flash memory has replaced most magnetic and optical media as it becomes cheaper because it is the more efficient and reliable solution.
@@ -243,6 +256,7 @@ Flash memory has replaced most magnetic and optical media as it becomes cheaper 
     Short for solid-state drive (or solid-state disk, although it doesn't use a disk mechanism), an SSD is a storage medium that uses non-volatile memory as a means of holding and accessing data.
 
     **NVMe:** Non-Volatile Memory Express, also known as NVMe, is a device specification introduced by Intel in 2007. It standardizes the way that non-volatile memory devices, such as SSDs, can be connected to a computer's PCI Express (PCIe) bus.
+
     ![](https://www.computerhope.com/jargon/s/ssd.jpg)
     ![](https://www.computerhope.com/jargon/n/nvme-intel-p3608.jpg)
 
@@ -252,7 +266,7 @@ Flash memory has replaced most magnetic and optical media as it becomes cheaper 
 
     ![](https://www.computerhope.com/jargon/m/microsd.jpg)
 
-**Venders of flash memory devices**
+- Venders of flash memory devices
 
   There are many venders of flash memory devices, but only few of them have ability to produce chips, other venders buy chips from these venders, so here just list the venders who have wafer fab.
 
@@ -265,6 +279,14 @@ Flash memory has replaced most magnetic and optical media as it becomes cheaper 
   | TOSHIBA |  Japan's largest semiconductor manufacturer, inventor of NAND flash memory  |
   | SK Hynix |   | 
 
+- My Comments
+
+    The development of flash memory greatly improves the user experience of computers. 
+    
+    The development of disk and memory card makes it possible to store large and portable capacity, and file transfer becomes convenient and fast. The emergence and development of SSD (mainly the decrease of cost) makes the speed of reading and writing (especially the random reading of small files) greatly improved, and makes the operation experience of computers directly on the stage. 
+    
+    However, my personal caution is not optimistic about the future of QLC particles, because it lost the greatest advantage of SSD for HDD. For now, I think the SSD of TLC particles is a good trade-off between speed, cost and capacity.
+
 ## Ceph
 
 ### What's Ceph
@@ -275,25 +297,29 @@ The Ceph project originated from Sage's PhD work (the earliest results were publ
 
 ### Pros of Ceph
 
-**High performance**
-A. Abandon the traditional centralized storage metadata addressing scheme, using CRUSH algorithm, data distribution is balanced, high parallelism.
-B. Considering the isolation of disaster-tolerant areas, it can realize the rules of placing duplicates of various loads, such as cross-room, rack awareness, etc.
-C. It can support the scale of thousands of storage nodes and support data from TB to PB level.
+- High performance
+  
+  1. Abandon the traditional centralized storage metadata addressing scheme, using CRUSH algorithm, data distribution is balanced, high parallelism.
+  2. Considering the isolation of disaster-tolerant areas, it can realize the rules of placing duplicates of various loads, such as cross-room, rack awareness, etc.
+  3. It can support the scale of thousands of storage nodes and support data from TB to PB level.
 
-**High availability**
-A. The number of copies can be controlled flexibly.
-B. Supporting fault domain separation and data consistency.
-C. Automatically repair and self-heal multiple fault scenarios.
-D. No single point of failure, automatic management.
+- High availability
+  
+  1. The number of copies can be controlled flexibly.
+  2. Supporting fault domain separation and data consistency.
+  3. Automatically repair and self-heal multiple fault scenarios.
+  4. No single point of failure, automatic management.
 
-**High scalability**
-A. Decentralization.
-B. Extension flexibility.
-C. Linear growth with the increase of nodes.
+- High scalability
+  
+  1. Decentralization.
+  2. Extension flexibility.
+  3. Linear growth with the increase of nodes.
 
-**Rich in characteristics**
-A. Three storage interfaces are supported: block storage, file storage and object storage.
-B. Support custom interface and multi-language driver.
+- Rich in characteristics
+  
+  1. Three storage interfaces are supported: block storage, file storage and object storage.
+  2. Support custom interface and multi-language driver.
 
 ### Ceph architecture
 
@@ -310,46 +336,72 @@ File: Posix interface to support snapshots.
 
 #### Block Storage
 
-**Typical devices:** disk arrays, hard disks
-The main purpose is to map the bare disk space to the host.
-**Advantage:**
-Raid and LVM provide data protection.
-Multiple cheap hard disks are combined to increase capacity.
-Logic disk composed of multiple disks can improve the efficiency of reading and writing.
-**Disadvantages:**
-When SAN is used to build a network, the cost of optical switch is high.
-Data cannot be shared between hosts.
-**Use scenarios:**
-Docker container, virtual machine disk storage allocation.
-Log storage.
-File store.
-...
+- Typical devices: 
+  
+  disk arrays, hard disks
+
+  The main purpose is to map the bare disk space to the host.
+
+- Advantage:
+
+  1. Raid and LVM provide data protection.
+  2. Multiple cheap hard disks are combined to increase capacity.
+  3. Logic disk composed of multiple disks can improve the efficiency of reading and writing.
+
+- Disadvantages:
+
+  1. When SAN is used to build a network, the cost of optical switch is high.
+  2. Data cannot be shared between hosts.
+
+- Use scenarios:
+  
+  1. Docker container, virtual machine disk storage allocation.
+  2. Log storage.
+  3. File store.
 
 #### File Storage
 
-**Typical devices:** FTP, NFS servers
-In order to overcome the problem that block storage files cannot be shared, file storage is available.
-Setting up FTP and NFS services on the server is file storage.
-**Advantage:**
-Low cost, just one machine.
-Facilitate file sharing.
-**Disadvantages:**
-Reading and writing rate is low.
-The transmission rate is slow.
-**Use scenarios:**
-Log storage.
-File storage with directory structure.
+- Typical devices:
+   
+  FTP, NFS servers
+
+  In order to overcome the problem that block storage files cannot be shared, file storage is available.
+
+  Setting up FTP and NFS services on the server is file storage.
+
+- Advantage:
+  
+  1. Low cost, just one machine.
+  2. Facilitate file sharing.
+
+- Disadvantages:
+  
+  1. Reading and writing rate is low.
+  2. The transmission rate is slow.
+
+- Use scenarios:
+  
+  1. Log storage.
+  2. File storage with directory structure.
 
 #### Object Storage
-**Typical devices:** distributed servers with built-in large capacity hard disks (swift, s3)
-Several servers have built-in large-capacity hard disks, installed object storage management software, and provided read-write access function to the outside world.
-**Advantage:**
-Read-write speed with block storage.
-It has the characteristics of file storage sharing and so on.
-**Use scenarios:**
-(suitable for updating data with less change)
-Picture storage.
-Video storage.
+
+- Typical devices:
+  
+  distributed servers with built-in large capacity hard disks (swift, s3)
+  
+  Several servers have built-in large-capacity hard disks, installed object storage management software, and provided read-write access function to the outside world.
+
+- Advantage:
+
+  1. Read-write speed with block storage.
+  2. It has the characteristics of file storage sharing and so on.
+
+- Use scenarios:
+  
+  (suitable for updating data with less change)
+  1. Picture storage.
+  2. Video storage.
 
 ### Indicators
 
@@ -362,3 +414,7 @@ Read-write performance of CEPH cluster
 Methods to do this tests is just write, read and move files and record the io thoughput. There are tools like iperf, rados bench, fio, cosbench, iostat and so on.
 
 Another thing about ceph is **reliability**. This can't be quantified, it can only be estimated.
+
+### My Comments
+
+Since there is no single failure, Ceph can achieve a low-cost, high-availability cluster, which can be used as a way to utilize older hardware, but it may not be of great significance to individual users.

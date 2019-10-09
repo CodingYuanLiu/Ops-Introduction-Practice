@@ -67,7 +67,9 @@ As AI & Machine learning is in a hot phase, GPU has been widely used in this are
 </p>
 
 NVIDIA has the most powerful GPU in computing and gaming.
+
 In graphics area, the new Turing architecture supports **Ray Tracing** functions for image processing and games while AMD currently have no corresponding productions.
+
 In computing area, CUDA platform is widly used in general computing and is better supported by AI/Machine learning frameworks than AMD's ROCm.
 
 ## TPU

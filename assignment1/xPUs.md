@@ -67,7 +67,9 @@ As AI & Machine learning is in a hot phase, GPU has been widely used in this are
 </p>
 
 NVIDIA has the most powerful GPU in computing and gaming.
+
 In graphics area, the new Turing architecture supports **Ray Tracing** functions for image processing and games while AMD currently have no corresponding productions.
+
 In computing area, CUDA platform is widly used in general computing and is better supported by AI/Machine learning frameworks than AMD's ROCm.
 
 #### Intel
@@ -77,6 +79,10 @@ In computing area, CUDA platform is widly used in general computing and is bette
 </p>
 
 Intel is the bigest GPU verder in the world, though its GPU has poor performance in gaming and computing compared to Nvidia and AMD's products, it's a huge success on bussines: integration of CPU and GPU. Because more than a half of computer users have no need for high-end GPUs.
+
+### Some Comment
+
+GPU has great advantages over CPU in image processing, game and parallel computing. Therefore, GPU exists in almost all PC and workstation: from low performance GPU for display and video decoding only, to high-end GPU which can provide powerful rendering and game capabilities, and GPU which focuses on computing. GPU plays a very important role in today's computer system and can be said to be indispensable. Of course, it also brings some new problems: high-performance GPU consumes a lot of power and calories, which requires more powerful power supply and cooling system on desktop computers, and for laptops, it needs to balance the relationship between portability, endurance and performance, which leads to today's laptops being subdivided into lightweight, game books, mobile workstations and other specific categories. To meet the needs of different groups of people. Personally, I prefer a combination of a high-performance desktop and a portable laptop.
 
 ## TPU
 
@@ -127,13 +133,18 @@ The TeraOps/Watts of these chips are 30 to 80 times higher than other hardware a
 
 Currently only Google provides TPU-based services.
 
+
+### Comment
+
+Artificial intelligence and machine learning are very popular nowadays. The requirement of model training for computing ability also drives the development of GPU. However, GPU is a general computing tool after all. It is certainly not as good as a specially designed computing tool for computing in specific fields. With the development of AI, the emergence of dedicated tools can be said to be inevitable, and the development of TPU also has great potential.
+
 ## HPU
 
 Holographic Processing Unit
 
 ### CPU+GPU or HPU ?
 
-The mode of CPU+GPU has been carried forward in the PC era, and has also been extended on mobile intelligent devices. On AR/VR devices, it is also a standard choice. But a simple GPU + CPU won't really meet the needs of VR / AR. 
+The mode of CPU+GPU has been carried forward in the PC era, and has also been extended on mobile intelligent devices. On AR/VR devices, it is also a standard choice. But a simple GPU + CPU won't really meet the needs of VR / AR.
 
 AR needs to deal with artificial intelligence and computer vision problems, such as target recognition, location, tracking and modeling, with a large amount of computation. Especially when multi-modal interaction runs at the same time, image recognition, voice, gesture and other computations need a lot of computing resources, and existing chips may not be enough.
 

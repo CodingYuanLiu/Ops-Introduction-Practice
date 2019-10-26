@@ -105,7 +105,7 @@ Framework ramp up time refers to the maximum time for a framework to acquire res
 Job completion time refers to job running time.
 
 <p align="center">
-	<img src="./IMGS/Mesos3-table1.png" alt="table1"  width="650">
+	<img src="./IMGS/Mesos3-Table1.png" alt="table1"  width="650">
 </p>
 
 In system utilization, because the elastic framework can run tasks as long as it gets resources (either partially or completely), and the rigid framework must get all the required resources before it can start running tasks, the resource utilization of the elastic framework can reach 100%, while the rigid framework only waits for resources not to run jobs. In the blank period, the resources obtained in the blank period have not been utilized, resulting in low utilization rate of resources. In my opinion, the longer the blank period is, the lower the resource utilization of rigid framework is.
@@ -165,6 +165,24 @@ Finally, torque is the only cluster framework that performs worse on average on 
 	<img src="./IMGS/Mesos10-locality.png" alt="performance"  width="350">
 </p>
 
-## 自己的思考
+### Error recovery
 
-1
+In order to evaluate the ability of fault recovery from the master process, they conducted an experiment. In the experiment, 62 EC2 nodes were used, with a total of 200 to 4000 slave background processes. Each node has 4 cores and 15GB of ram. They run 200 clustering frameworks that run 20 second long tasks at a time, and two mesos master nodes that connect zookeeper with five nodes. They use NTP to synchronize the clocks of the two master nodes, and kill the active nodes.
+
+The mean time to recovery (MTTR) is calculated after the active master node. MTTR is the time when all the slave nodes and the cluster framework connect to the second master node. In all test cases, MTTR is between 4-8s, and the confidence interval of 3S is 95%.  
+
+### Performance isolation
+
+Mesos uses the existing operating system isolation mechanism to provide performance isolation between different cluster frameworks running on the same slave node. Although these mechanisms are not perfect, a performance evaluation of Linux container shows the expected results. In particular, the use of containers to isolate MediaWiki network services (including a large number of Apache processes running PHP) and a "hog" application (including 256 infinite rotation processes) only shows a 30% increase in request latency, while running these two programs without containers will result in a 550% increase in request latency.
+
+## What do I get from this paper
+
+The first is I know what's mesos and how it works now. Mesos performs as a high level scheduler to schedule framework workloads, and the frameworks schedule their own workloads.
+
+What more important is the ideas I got from this paper:
+
+1. You don't have to do everything with one core, sometimes a layered architecture makes the responsibilities clear and the system easy to implement.
+
+2. Lightweight design is easier to expand
+
+3. When the existing facilities are not enough to complete the functions, a high-level facility can be added to them to organize them to complete more complex tasks.

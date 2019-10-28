@@ -146,13 +146,13 @@ Finally, higher allocation of node resources is translated into higher CPU and m
 The second problem is how well jobs run in the context of mesos than in the case of static allocation clusters. They show this data in two ways. First, figure 5 compares the resource allocation of each cluster framework in a shared and static allocation cluster over a period of time. The shaded part represents the resource allocation in the static allocation cluster, and the solid line area represents the resources shared on the mesos. It can be seen that when the overall demand allows, the fine-grained cluster framework (Hadoop and spark) has expanded to more than 1 / 4 of the cluster by means of mesos. As a result, jobs are submitted faster on mesos. At the same time, torque completes the similar resource allocation and job running period under mesos.
 
 <p align="center">
-	<img src="./IMGS/Mesos8-table2.png" alt="performance"  width="350">
+	<img src="./IMGS/Mesos8-Table2.png" alt="performance"  width="350">
 </p>
 
 Second, tables 4 and 5 illustrate the changes in job efficiency for each cluster framework. In Table 4, they compare the overall performance of each cluster framework, which is defined as the sum of the job run times in the static allocation cluster and the mesos scenario. You can see that Hadoop and spark jobs run faster on the whole on mesos, while torque slightly slows down. The cluster framework that gets the biggest improvement is the big job hybrid Hadoop, which always has tasks to run, and will fill in the gap of other cluster framework requirements. This cluster framework shows twice the efficiency improvement on mesos.
 
 <p align="center">
-	<img src="./IMGS/Mesos9-table3.png" alt="performance"  width="350">
+	<img src="./IMGS/Mesos9-Table3.png" alt="performance"  width="350">
 </p>
 
 Table 5 compares the results more specifically in type. Two noteworthy trends can be observed. First of all, in the Facebook Hadoop hybrid test, small jobs run worse on mesos. This is because of the interaction between the fair share on Hadoop (between its jobs) and the fair share on mesos (between different cluster frameworks): during the period when Hadoop owns 1 / 4 of the cluster's resources, Hadoop will have a delay in getting a new resource offer (because any emptied resources will be allocated to the furthest cluster framework shared with it). So in this period of time, any submitted small job will be delayed for a long time compared with its running time. On the contrary, when running alone, Hadoop can provide resources for new jobs as soon as any task ends. This hierarchical fair sharing problem will also appear in network, which can be alleviated by running small jobs in an independent cluster framework or using different allocation strategies. (for example, using lottery scheduling instead of providing all the cleaned up resources to the cluster framework with the least sharing)

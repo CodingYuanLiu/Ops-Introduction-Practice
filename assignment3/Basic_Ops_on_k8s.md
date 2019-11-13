@@ -10,11 +10,11 @@ This is the main tool to use the cluster.
 
 ### Get
 
-`kubectl get [resource kind] [-namespace]`
+`kubectl get [resource kind] [-n namespace]`
 
-this will show the resources of provided kind in provided namespace. Note that `[-namespace]` is optional, the default is `default`, and `-A` means to show resources of all namespaces.
+this will show the resources of provided kind in provided namespace. Note that `[-n namespace]` is optional, the default is `default`, and `-A` means to show resources of all namespaces.
 
-examples: `kubectl get pods -Micro`, `kubectl get pods,services,deployments -A`
+examples: `kubectl get pods -n Micro`, `kubectl get pods,services,deployments -A`
 
 ### Apply
 

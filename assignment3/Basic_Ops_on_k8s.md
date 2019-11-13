@@ -11,13 +11,18 @@ This is the main tool to use the cluster.
 ### Get
 
 `kubectl get [resource kind] [-namespace]`
+
 this will show the resources of provided kind in provided namespace. Note that `[-namespace]` is optional, the default is `default`, and `-A` means to show resources of all namespaces.
+
 examples: `kubectl get pods -Micro`, `kubectl get pods,services,deployments -A`
 
 ### Apply
 
 `kubectl apply -f [filename]`
+
 This will apply the yaml file to cluster.
+
+examples: `kubectl apply -f apiserver_deployment.yaml`
 
 ## More Details
 

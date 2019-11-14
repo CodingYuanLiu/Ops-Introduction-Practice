@@ -201,7 +201,7 @@ For more yaml details you can refer to this page: <https://www.cnblogs.com/lgeng
 
 5. If you want to have multiple scheduler running, you should modify the name of the scheduler, and name for the two config map(or every pod will see the change to configmap), don't forget to modify the names in data part(my-scheduler-config.yaml) and volumes part(my-scheduler.yaml). Copy and modify the copy is strongly recomended as recovery is annoying.
 
-6. After some operations, you may want to depoly a new scheduler pod, if you dont't modify the names of pod and configmaps, you need to firstly delete the old pod(configmap needs not): `kubectl delete pod my-kube-scheduler -n kube-system`.
+6. After some operations, you may want to depoly a new scheduler pod, if you didn't modify the names of pod and configmaps, you need to firstly delete the old pod(configmap needs not): `kubectl delete pod my-kube-scheduler -n kube-system`.
 
 ## Evaluate
 

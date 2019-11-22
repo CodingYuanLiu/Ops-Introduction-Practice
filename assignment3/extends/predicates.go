@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	_ "fmt"
 	"k8s.io/api/core/v1"
 	schedulerapi "k8s.io/kubernetes/pkg/scheduler/api"
@@ -13,7 +14,6 @@ const (
 	// LuckyPred rejects a node if you're not lucky ¯\_(ツ)_/¯
 	PodNameFitPred        = "PodNameFitPred"
 	PodNameFitPredFailMsg = "Pod name don't fit with node"
-	PodFitResourcePred = "PodFitResourcePred"
 )
 
 var predicatesFuncs = map[string]FitPredicate{
@@ -24,7 +24,6 @@ type FitPredicate func(pod *v1.Pod, node v1.Node) (bool, []string, error)
 
 var predicatesSorted = []string{
 	PodNameFitPred,
-	PodFitResourcePred,
 }
 
 // filter filters nodes according to predicates defined in this extender
@@ -75,13 +74,12 @@ func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
  */
 func PodNameFitPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 	var valid bool
-	min := math.Min(float64(len(node.Name)), 32)
-	max := math.Max(0, float64(len(node.Name)))
-	valid = int(min) < len(pod.Name)  && len(pod.Name) < int(max)
+	max := math.Min(float64(len(node.Name)) + 10, 32)
+	valid = int(max) > len(pod.Name)
 	if valid {
-		log.Printf("pod %v/%v length is %d, fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), node.Name)
+		log.Printf("pod %v/%v length is %d, node length is %d fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
 		return true, nil, nil
 	}
-	log.Printf("pod %v/%v length is %d, not fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), node.Name)
-	return false, []string{PodNameFitPredFailMsg}, nil
+	log.Printf("pod %v/%v length is %d,  node length is %d, not fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
+	return false, []string{PodNameFitPredFailMsg}, fmt.Errorf("pod length exceed ")
 }

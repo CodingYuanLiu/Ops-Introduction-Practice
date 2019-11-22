@@ -1,27 +1,31 @@
 package main
 
 import (
-	"log"
-	"math/rand"
-	"strings"
-
+	_ "fmt"
 	"k8s.io/api/core/v1"
 	schedulerapi "k8s.io/kubernetes/pkg/scheduler/api"
+	"log"
+	"math"
+	"strings"
 )
 
 const (
 	// LuckyPred rejects a node if you're not lucky ¯\_(ツ)_/¯
-	HostNetworkPred        = "HostNetworkPred"
-	HostNetworkPredFailMsg = "Host network is not enabled"
+	PodNameFitPred        = "PodNameFitPred"
+	PodNameFitPredFailMsg = "Pod name don't fit with node"
+	PodFitResourcePred = "PodFitResourcePred"
 )
 
 var predicatesFuncs = map[string]FitPredicate{
-	HostNetworkPred: HostNetworkPredicate,
+	PodNameFitPred: PodNameFitPredicate,
 }
 
 type FitPredicate func(pod *v1.Pod, node v1.Node) (bool, []string, error)
 
-var predicatesSorted = []string{HostNetworkPred}
+var predicatesSorted = []string{
+	PodNameFitPred,
+	PodFitResourcePred,
+}
 
 // filter filters nodes according to predicates defined in this extender
 // it's webhooked to pkg/scheduler/core/generic_scheduler.go#findNodesThatFit()
@@ -66,11 +70,18 @@ func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 	return fits, failReasons, nil
 }
 
-func HostNetworkPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
-	if pod.Spec.HostNetwork {
-		log.Printf("pod %v/%v use host network, thus fit on node %v\n", pod.Name, pod.Namespace, node.Name)
+/**
+ * check if pod name length is within [max(node name length - 5, 0), min(node name length + 5, 64)]
+ */
+func PodNameFitPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
+	var valid bool
+	min := math.Min(float64(len(node.Name)), 32)
+	max := math.Max(0, float64(len(node.Name)))
+	valid = int(min) < len(pod.Name)  && len(pod.Name) < int(max)
+	if valid {
+		log.Printf("pod %v/%v length is %d, fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), node.Name)
 		return true, nil, nil
 	}
-	log.Printf("pod %v/%v is not using host network, thus not fit on node %v\n", pod.Name, pod.Namespace, node.Name)
-	return false, []string{HostNetworkPredFailMsg}, nil
+	log.Printf("pod %v/%v length is %d, not fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), node.Name)
+	return false, []string{PodNameFitPredFailMsg}, nil
 }

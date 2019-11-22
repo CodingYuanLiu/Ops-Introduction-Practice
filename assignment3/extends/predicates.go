@@ -11,17 +11,17 @@ import (
 
 const (
 	// LuckyPred rejects a node if you're not lucky ¯\_(ツ)_/¯
-	LuckyPred        = "Lucky"
-	LuckyPredFailMsg = "Well, you're not lucky"
+	HostNetworkPred        = "HostNetworkPred"
+	HostNetworkPredFailMsg = "Host network is not enabled"
 )
 
 var predicatesFuncs = map[string]FitPredicate{
-	LuckyPred: LuckyPredicate,
+	HostNetworkPred: HostNetworkPredicate,
 }
 
 type FitPredicate func(pod *v1.Pod, node v1.Node) (bool, []string, error)
 
-var predicatesSorted = []string{LuckyPred}
+var predicatesSorted = []string{HostNetworkPred}
 
 // filter filters nodes according to predicates defined in this extender
 // it's webhooked to pkg/scheduler/core/generic_scheduler.go#findNodesThatFit()
@@ -66,12 +66,11 @@ func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 	return fits, failReasons, nil
 }
 
-func LuckyPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
-	lucky := rand.Intn(2) == 0
-	if lucky {
-		log.Printf("pod %v/%v is lucky to fit on node %v\n", pod.Name, pod.Namespace, node.Name)
+func HostNetworkPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
+	if pod.Spec.HostNetwork {
+		log.Printf("pod %v/%v use host network, thus fit on node %v\n", pod.Name, pod.Namespace, node.Name)
 		return true, nil, nil
 	}
-	log.Printf("pod %v/%v is unlucky to fit on node %v\n", pod.Name, pod.Namespace, node.Name)
-	return false, []string{LuckyPredFailMsg}, nil
+	log.Printf("pod %v/%v is not using host network, thus not fit on node %v\n", pod.Name, pod.Namespace, node.Name)
+	return false, []string{HostNetworkPredFailMsg}, nil
 }

@@ -98,7 +98,45 @@ func prioritize(args schedulerapi.ExtenderArgs) *schedulerapi.HostPriorityList {
 }
 ```
 
-A simple filter algorithm to filter the node randomly is also easy to implement. The code can be seen at github.
+The `Filter()` is implemented with pod name and node names. 
+We used a really simple algorithm by comparing the length of pod names with node names.
+If `len(pod.Name) < Max(len(node.Name) + 10, 32)` fits, pod fits in that node. The reason for `len(node.Name) + 10` is to 
+easily test pods, since changing pods is easie than changing nodes.
+
+The Code are shown below.
+
+```go
+func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
+	fits := true
+	failReasons := []string{}
+	for _, predicateKey := range predicatesSorted {
+		fit, failures, err := predicatesFuncs[predicateKey](pod, node)
+		if err != nil {
+			return false, nil, err
+		}
+		fits = fits && fit
+		failReasons = append(failReasons, failures...)
+	}
+	return fits, failReasons, nil
+}
+
+/**
+ * check if pod name length is within [max(node name length - 5, 0), min(node name length + 5, 64)]
+ */
+func PodNameFitPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
+	var valid bool
+	max := math.Min(float64(len(node.Name)) + 10, 32)
+	valid = int(max) > len(pod.Name)
+	if valid {
+		log.Printf("pod %v/%v length is %d, node length is %d fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
+		return true, nil, nil
+	}
+	log.Printf("pod %v/%v length is %d,  node length is %d, not fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
+	return false, []string{PodNameFitPredFailMsg}, fmt.Errorf("pod length exceed ")
+}
+```
+We referenced source code of kubernetes and inspect the implementation of scheduler alogorithm, both predicates and prioritize. For simpilicity, In `Filter` part, 
+I choose the simplest one. I tried to implement with `resource` oriented but failed for lack of k8s knowledge.
 
 #### Cautions
 

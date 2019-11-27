@@ -70,16 +70,18 @@ func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 }
 
 /**
- * check if pod name length is within [max(node name length - 5, 0), min(node name length + 5, 64)]
+ * check if pod name length is within [0, max(node.index + 17, 32))
+ * node_index is 1, 2, 3
  */
 func PodNameFitPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 	var valid bool
-	max := math.Min(float64(len(node.Name)) + 10, 32)
+	index := int(node.Name[9] - 0x30)
+	max := math.Min(float64(index) + 17, 32)
 	valid = int(max) > len(pod.Name)
 	if valid {
-		log.Printf("pod %v/%v length is %d, node length is %d fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
+		log.Printf("[%v] pod %v/%v length is %d, node length is %d, fit", node.Name, pod.Name, pod.Namespace, len(pod.Name), int(max))
 		return true, nil, nil
 	}
-	log.Printf("pod %v/%v length is %d,  node length is %d, not fit on node %v\n", pod.Name, pod.Namespace, len(pod.Name), len(node.Name),node.Name)
+	log.Printf("[%v] pod %v/%v length is %d,  node length is %d, unfit\n", node.Name, pod.Name, pod.Namespace, len(pod.Name), int(max))
 	return false, []string{PodNameFitPredFailMsg}, fmt.Errorf("pod length exceed ")
 }

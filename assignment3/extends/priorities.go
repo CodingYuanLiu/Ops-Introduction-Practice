@@ -14,7 +14,7 @@ import (
 const (
 	// lucky priority gives a random [0, schedulerapi.MaxPriority] score
 	// currently schedulerapi.MaxPriority is 10
-	luckyPrioMsg = "pod %v/%v is lucky to get score %v\n"
+	luckyPrioMsg = "[%v] pod %v/%v is lucky to get score %v\n"
 )
 
 // it's webhooked to pkg/scheduler/core/generic_scheduler.go#PrioritizeNodes()
@@ -27,7 +27,7 @@ func prioritize(args schedulerapi.ExtenderArgs) *schedulerapi.HostPriorityList {
 	hostPriorityList := make(schedulerapi.HostPriorityList, len(nodes))
 	for i, node := range nodes {
 		score := rand.Intn(schedulerapi.MaxPriority + 1)
-		log.Printf(luckyPrioMsg, pod.Name, pod.Namespace, score)
+		log.Printf(luckyPrioMsg, node.Name, pod.Name, pod.Namespace, score)
 		hostPriorityList[i] = schedulerapi.HostPriority{
 			Host:  node.Name,
 			Score: score,

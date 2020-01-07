@@ -1,7 +1,9 @@
 package main
 
-import "github.com/kataras/iris/v12"
-import "tinyurl/controller"
+import (
+	"github.com/kataras/iris/v12"
+	"tinyurl/controller"
+)
 
 func main() {
 	app := iris.Default()

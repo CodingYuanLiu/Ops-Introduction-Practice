@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"github.com/go-redis/redis/v7"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -32,6 +31,7 @@ func GetUrl(ctx iris.Context) {
 		log.Println(err)
 	}
 	if val != "" {
+		log.Println("cache hit")
 		_, _ = ctx.JSON(iris.Map{
 			"url": val,
 		})
@@ -41,12 +41,14 @@ func GetUrl(ctx iris.Context) {
 	id := tinyencoder.Decode(turl)
 	url := UrlPair{}
 	db.First(&url, "id = ?", id)
+	log.Println("cache miss")
 	if url.ID != 0 {
 		_, _ = ctx.JSON(iris.Map{
 			"url": url.Url,
 		})
 		client.Set(turl, url.Url, 300000000000)
 	} else {
+		log.Println("not found")
 		ctx.StatusCode(404)
 	}
 }
